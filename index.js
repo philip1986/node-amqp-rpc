@@ -27,15 +27,18 @@ function rpc(opt)   {
 
     this.__connCbs = [];
     this.__exchangeCbs = [];
+
+    rpc.__instanceCount++;
 }
+
+rpc.__instanceCount = 0;
 
 /**
  * generate unique name for new queue
  * @returns {string}
  */
-
 rpc.prototype.generateQueueName = function(type)    {
-    return /*'njsListener:' +*/ os.hostname() + ':pid' + process.pid + ':' + type;
+    return /*'njsListener:' +*/ os.hostname() + ':pid' + process.pid + ':' + rpc.__instanceCount + ':' + type;
 }
 
 
