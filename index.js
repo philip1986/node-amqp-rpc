@@ -223,7 +223,7 @@ rpc.prototype.call = function(cmd, params, cb, context, options) {
                     $this.__results_cb[ corr_id ] = {
                         cb: cb,
                         context: context,
-                        autoDeleteCallback: !!options.autoDeleteCallback
+                        autoDeleteCallback: !options.autoDeleteCallback
                     };
 
 
